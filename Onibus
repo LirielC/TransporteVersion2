@@ -1,0 +1,113 @@
+import java.util.Scanner;
+
+public class Onibus extends Transporte implements Movimentos{
+       private int numeroPassageiros;
+       private boolean banheiro;
+       Motor motor1 = new Motor(); // Tem que ser criado o objeto mesmo
+
+     public void setNumeroPassageiros(int numeroPassageiros){
+        if(numeroPassageiros>0){
+            this.numeroPassageiros=numeroPassageiros;
+        }
+    }
+    public void setBanheiro(boolean banheiro){
+         this.banheiro=banheiro;
+    }
+    public int getNumeroPassageiros(){
+         return numeroPassageiros;
+    }
+    public boolean getBanheiro(){
+         return banheiro;
+    }
+    //Construtores
+    public Onibus(int numeroPassageiros){
+         this.numeroPassageiros=numeroPassageiros;
+    }
+    public Onibus(){
+         //vazio
+    }
+    public Onibus(boolean banheiro){
+         this.banheiro=true;
+    }
+    public Onibus(boolean banheiro, int  numeroPassageiros){
+         this.banheiro=banheiro;
+         this.numeroPassageiros=numeroPassageiros;
+    }
+    public Onibus(int numeroPassageiros, boolean banheiro){
+         this.numeroPassageiros=numeroPassageiros;
+         this.banheiro=banheiro;
+    }
+    public Onibus( int potencia, int rpm, String marca){
+         super(potencia, rpm, marca);
+    }
+    public Onibus(double preco, String placa){
+         super(preco, placa);
+    }
+    public Onibus(Motor motor){
+         super(motor);
+    }
+    @Override
+    public void acelerar() {
+       if(motor!=null){
+           motor.setRpm(motor.getRpm() +50);
+           System.out.println("O onibus acelerou viu. Toma aí o RPM: " +motor.getRpm());
+       }
+    }
+
+    @Override
+    public void desacelerar() {
+         if(motor!=null){
+             motor.setRpm(motor.getRpm() -50);
+             System.out.println("O onibus diminiu a velocidade viu: " +motor.getRpm());
+         }
+
+    }
+
+    @Override
+    public void frear() {
+         System.out.println("O ônibus tá freando aí");
+    }
+
+    @Override
+    public void virarDireita() {
+         System.out.println("O onibus está virando a direita");
+
+    }
+
+    @Override
+    public void virarEsquerda() {
+       System.out.println("O onibus está virando a esquerda");
+    }
+
+    @Override
+    public double desconto() {
+        return preco * 0.10;
+    }
+    public void cadastrar(double preco, String marca, String placa, int IDADEMINIMAMOTORISTA, int potencia, int rpm, String tipoCombustivel, Motor motor, int numeroPassageiros, boolean banheiro ){
+      super.cadastrar(preco, marca, placa, IDADEMINIMAMOTORISTA, potencia, rpm, tipoCombustivel, motor);
+      setNumeroPassageiros(numeroPassageiros);
+      setBanheiro(banheiro);
+
+    }
+    public void imprimir(){
+         super.imprimir();
+         System.out.println("Numero Passageiros:  " +getNumeroPassageiros());
+        if(!this.banheiro){
+            System.out.println("Banheiro não possui\n");
+
+        } else {
+            System.out.println("Banheiro possui\n ");
+        }
+
+    }
+    public void entradaDados(){
+         String opc;
+         super.entradaDados();
+         Scanner sc = new Scanner(System.in);
+         System.out.println("Numero Passageiros: ");
+         setNumeroPassageiros(Integer.parseInt(sc.nextLine()));
+         System.out.println("Banheiro? S ou N "); //eu achei mais fácil de fazer isso para decorar
+         opc = sc.nextLine();
+         setBanheiro("S".equals(opc));
+    }
+}
