@@ -7,9 +7,9 @@ public class Motor {
 
 
 
-    int potencia;
-    int rpm;
-   String tipoCombustivel;
+  protected  int potencia;
+   protected int rpm;
+   protected String tipoCombustivel;
 
     public Motor(){
 
