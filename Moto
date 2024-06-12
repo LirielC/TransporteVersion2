@@ -1,0 +1,101 @@
+import java.util.Scanner;
+
+public class Moto extends Transporte implements Movimentos{
+    private int volumeBagageiro;
+
+     Motor motor1 = new Motor();
+
+
+    public void setVolumeBagageiro(int bag){
+       if(bag>0) {
+
+           volumeBagageiro=bag;
+       }
+}
+     public int getVolumeBagageiro(){
+        return volumeBagageiro;
+     }
+
+     public Moto(){
+
+     }
+     public Moto(int volumeBagageiro){
+        this.volumeBagageiro=volumeBagageiro;
+     }
+     public Moto(String marca, String placa){
+        super(marca, placa);
+     }
+     public Moto(String marca, int VolumeBagageiro){
+        this.marca=marca;
+        this.volumeBagageiro=0;
+     }
+     public Moto(int volumeBagageiro, double preco, String marca){
+        super(preco, marca);
+        this.volumeBagageiro=volumeBagageiro;
+     }
+     public Moto(double preco, String marca){
+        super(preco, marca);
+     }
+     public Moto(double preco){
+        super(preco);
+     }
+
+
+
+    public void acelerar() {
+        if (motor != null) {
+            motor.setRpm(motor.getRpm() + 200);
+            System.out.println("O carro acelerou. RPM atual: " + motor.getRpm());
+        }
+    }
+
+
+    public void desacelerar() {
+        if (motor != null) {
+            motor.setRpm(motor.getRpm() - 200);
+            System.out.println("O carro desacelerou. RPM atual: " + motor.getRpm());
+        }
+
+    }
+
+
+    public void frear() {
+        System.out.println("Moto Freando");
+
+    }
+
+
+    public void virarDireita() {
+        System.out.println("Moto virando a direita");
+
+    }
+
+
+    public void virarEsquerda() {
+    System.out.println("Moto virando a esquerda");
+    }
+
+
+    public double desconto() {
+
+        return preco * 0.8;
+    }
+    public void cadastrar(double preco, String marca, String placa, int IDADEMINIMAMOTORISTA, int potencia, int rpm, String tipoCombustivel, Motor motor, int volumeBagageiro) {
+        super.cadastrar(preco, marca, placa, IDADEMINIMAMOTORISTA, potencia, rpm, tipoCombustivel, motor);
+        setVolumeBagageiro(volumeBagageiro);
+    }
+    public void imprimir(){
+        super.imprimir();
+        System.out.println("Volume: "+getVolumeBagageiro());
+
+    }
+    public void entradaDados(){
+        super.entradaDados();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Volume: ");
+        setVolumeBagageiro(Integer.parseInt(sc.nextLine()));
+
+    }
+
+
+}
