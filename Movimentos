@@ -1,0 +1,12 @@
+public interface Movimentos {
+
+      void acelerar();
+
+     void desacelerar();
+      void frear();
+     void virarDireita();
+     void virarEsquerda();
+
+
+
+}
