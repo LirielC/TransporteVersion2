@@ -1,0 +1,88 @@
+import java.util.Scanner;
+
+public class Motor {
+
+
+
+
+
+
+    int potencia;
+    int rpm;
+   String tipoCombustivel;
+
+    public Motor(){
+
+    }
+    public Motor(int potencia, int rpm) {
+        try {
+            this.potencia = potencia;
+            this.rpm = rpm;
+        } catch (IllegalArgumentException e){
+            System.out.println("Erro ao criar veículo: " + e.getMessage());
+        }
+    }
+    public Motor(String tipoCombustivel, int potencia){
+        this.potencia=potencia;
+        this.tipoCombustivel=tipoCombustivel;
+    }
+    public Motor(int rpm, int potencia, String tipoCombustivel){
+        this.potencia=potencia;
+        this.rpm=rpm;
+        this.tipoCombustivel=tipoCombustivel;
+    }
+    public Motor(String tipoCombustivel, int rpm, int potencia){
+        this.tipoCombustivel=tipoCombustivel;
+        this.rpm=rpm;
+        this.potencia=potencia;
+    }
+    public Motor(String tipoCombustivel){
+        this.tipoCombustivel=tipoCombustivel;
+    }
+    public void setPotencia(int pot){
+        if(pot>0){
+            potencia=pot;
+        }
+    }
+    public void setRpm(int rp) {
+        if (rp < 0) {
+            throw new IllegalArgumentException("O RPM não pode ser negativo.");
+        }
+        this.rpm = rp;
+    }
+    public void setTipoCombustivel(String tc){
+        if(!tc.isEmpty()); {
+            tipoCombustivel=tc;
+        }
+    }
+    public int getPotencia(){
+        return potencia;
+    }
+    public int getRpm(){
+        return rpm;
+    }
+    public String getTipoCombustivel(){
+        return tipoCombustivel;
+    }
+    public void cadastrar(int potencia, int rpm, String tipoCombustivel){
+        setPotencia(potencia);
+        setRpm(rpm);
+        setTipoCombustivel(tipoCombustivel);
+
+    }
+    public void imprimir(){
+        System.out.println("Potência: "+getPotencia());
+        System.out.println("RPM: "+getRpm());
+        System.out.println("Tipo combustível: "+getTipoCombustivel());
+
+    }
+    public void entradaDados(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Potência: ");
+        setPotencia(Integer.parseInt(sc.nextLine()));
+        System.out.println("RPM: ");
+        setRpm(Integer.parseInt(sc.nextLine()));
+        System.out.println("Tipo Combustivel: ");
+        setTipoCombustivel(sc.nextLine());
+    }
+}
