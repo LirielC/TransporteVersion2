@@ -1,0 +1,116 @@
+import java.util.Scanner;
+
+ public class Carro extends Transporte implements Movimentos {
+
+
+
+
+     @Override
+     public void acelerar() {
+         motor.setRpm(motor.getRpm() + 100);
+         System.out.println("Acelerando... Rotações aumentadas para " + motor.getRpm() + " RPM.");
+
+     }
+
+     @Override
+     public void desacelerar() {
+         motor.setRpm(motor.getRpm() - 100);
+         if (motor.getRpm() < 0) motor.setRpm(0);
+         System.out.println("Desacelerando... Rotações diminuídas para " + motor.getRpm() + " RPM.");
+
+     }
+
+     @Override
+     public void frear() {
+         System.out.println("Carro freando");
+
+     }
+
+     @Override
+     public void virarDireita() {
+
+         System.out.println("Carro virando a direita");
+     }
+
+     @Override
+     public void virarEsquerda() {
+         System.out.println("Carro virando a esquerda");
+
+     }
+     public double desconto() {
+         return preco * 0.90;
+     }
+     private int numeroPassageiros;
+    private int volumeMala;
+
+     Motor motor1 =new Motor();
+
+    public void setNumeroPassageiros(int nump){
+        if(nump>0){
+            numeroPassageiros=nump;
+        }
+    }
+    public void setVolumeMala(int volmala){
+        if(volmala>0){
+            volumeMala=volmala;
+        }
+    }
+    public int getNumeroPassageiros(){
+        return numeroPassageiros;
+    }
+    public int getVolumeMala(){
+        return volumeMala;
+    }
+    public Carro(){
+        //vazio
+
+    }
+    public Carro(int volmala){
+        this.volumeMala=volmala;
+    }
+    public Carro(int volumeMala, int numeroPassageiros){
+        this.volumeMala=volumeMala;
+        this.numeroPassageiros=numeroPassageiros;
+    }
+    public Carro(double preco, String marca, String placa, int IDADEMINIMAMOTORISTA){
+        super(preco, marca, placa, IDADEMINIMAMOTORISTA);
+    }
+    public Carro(int potencia, int rpm, String marca) {
+        super(potencia, rpm, marca);
+    }
+    public Carro(Motor motor){
+        super(motor);
+    }
+    public Carro(Motor motor, int volumeMala){
+        this.motor=motor;
+        this.volumeMala=volumeMala;
+    }
+    public void cadastrar(int numeroPassaageiros, int volumeMala, double preco, String marca, String placa, int IDADEMINIMAMOTORISTA,  int potencia, int rpm, String tipoCombustivel, Motor motor){
+        super.cadastrar(preco, marca, placa, IDADEMINIMAMOTORISTA, potencia, rpm, tipoCombustivel, motor);
+        setNumeroPassageiros(numeroPassageiros);
+        setVolumeMala(volumeMala);
+
+
+
+    }
+    public void imprimir(){
+        super.imprimir();
+        System.out.println("Numero Passageiros: "+getNumeroPassageiros());
+        System.out.println("Volume Mala: "+ getVolumeMala());
+         //motor.imprimir();
+
+    }
+    public void entradaDados(){
+        Scanner sc = new Scanner(System.in);
+        super.entradaDados();
+
+        System.out.println("Numero Passsageiros: ");
+        setNumeroPassageiros(Integer.parseInt(sc.nextLine()));
+        System.out.println("Volume Mala:  ");
+        setVolumeMala(Integer.parseInt(sc.nextLine()));
+
+    }
+
+
+
+}
