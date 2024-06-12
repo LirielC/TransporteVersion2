@@ -1,0 +1,66 @@
+public class App {
+
+
+    public static void main(String[] args) {
+
+
+        //Carro c1 = new Carro();
+        //c1.motor1.setPotencia(1000);
+        // c1.motor1.acelerar();
+        // c1.motor1.entradaDados();
+        //c1.motor1.imprimir();
+      /*  Carro[] carros = new Carro[5];
+        Motor motorCarro2 = new Motor(180, 1200, "Gasolina");
+        Motor motorCarro1 = new Motor(200, 1500, "Gasolina");
+        Motor motorCarro3 = new Motor(220, 2000, "Gasolina");
+        carros[0] = new Carro(motorCarro1, 0000);
+        for (Carro carro : carros) {
+            if (carro != null) {
+                carro.imprimir();
+            }
+        }*/
+       /* Carro c2 = new Carro();
+        System.out.println("Idade Minima Motorista: " + Transporte.getIDADEMINIMAMOTORISTA());
+
+        Carro c3 = new Carro();
+        c3.imprimir();
+        c3.entradaDados();
+        Onibus[][] onibusMatriz = new Onibus[2][2];
+        try {
+            // Criando instâncias de Motor
+            Motor motorOnibus1 = new Motor(300, 1500, "Diesel");
+            Motor motorOnibus2 = new Motor(350, 1700, "Diesel");
+
+            // Inicializando os ônibus na matriz
+
+            // Adicione mais ônibus conforme necessário
+
+            // Iterando sobre a matriz de ônibus e imprimindo os detalhes de cada ônibus
+            for (int i = 0; i < onibusMatriz.length; i++) {
+                for (int j = 0; j < onibusMatriz[i].length; j++) {
+                    Onibus onibus = onibusMatriz[i][j];
+                    if (onibus != null) {
+                        System.out.println("Detalhes do ônibus [" + i + "][" + j + "]:");
+                        onibus.imprimir();
+                        onibus.acelerar(); // Acelerando para demonstrar a funcionalidade
+                        onibus.desacelerar(); // Desacelerando para demonstrar a funcionalidade
+                    }
+                }
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro ao criar um ônibus: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Erro inesperado: " + e.getMessage());
+        }
+    }
+
+
+    }
+
+        */
+       // Onibus o1 = new Onibus();
+      //  o1.motor1.setRpm(100);
+      //  o1.motor1.imprimir();
+        Carro c1 = new Carro();
+
+       c1.imprimir
