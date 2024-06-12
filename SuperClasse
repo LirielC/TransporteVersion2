@@ -1,0 +1,118 @@
+import java.util.Scanner;
+public  abstract class Transporte{
+  protected double preco;
+  Motor motor;
+  protected String marca;
+  protected String placa;
+  protected static final int IDADEMINIMAMOTORISTA = 18;
+
+  Motor motor1 = new Motor();
+
+  public Transporte(double preco, String marca, String placa, int IDADEMINIMAMOTORISTA){
+     this.preco=preco;
+     this.marca=marca;
+     this.placa=placa;
+
+  }
+  public Transporte( Motor motor){
+      this.motor=motor;
+  }
+  public Transporte(int potencia, int rpm, String marca){
+      this.motor = new Motor(potencia, rpm);
+      this.marca=marca;
+
+  }
+  public Transporte(){
+      //vazia
+  }
+  public Transporte(double preco){
+      this.preco=preco;
+  }
+  public Transporte(String marca){
+      this.marca=marca;
+  }
+  public Transporte (String placa, String marca){
+      this.placa=placa;
+      this.marca=marca;
+  }
+  public Transporte(double preco, String placa){
+      this.preco=preco;
+      this.placa=placa;
+  }
+  public void setPreco(double pre){
+      if(pre>0){
+          preco=pre;
+      }
+  }
+
+  public void setMarca(String ma){
+      if(!ma.isEmpty()){
+          marca=ma;
+      }
+  }
+  public void setPlaca(String pla){
+      if(!pla.isEmpty()){
+          placa=pla;
+      }
+  }
+  /*public void setIdadeMinimaMotorista(int idade){
+      this.IDADEMINIMAMOTORISTA=19;
+  }*/ // não funciona pois IDADEMINIMA é statica
+  public static int  getIDADEMINIMAMOTORISTA(){
+      return IDADEMINIMAMOTORISTA;
+  }
+  public double getPreco(){
+      return preco;
+  }
+  public String getMarca(){
+      return marca;
+  }
+  public String getPlaca(){
+      return placa;
+  }
+  public void cadastrar(double preco, String marca, String placa, int IDADEMINIMAMOTORISTA, int potencia, int rpm, String tipoCombustivel, Motor motor){
+      setPreco(preco);
+      setMarca(marca);
+      setPlaca(placa);
+      motor.cadastrar(rpm, potencia, tipoCombustivel);
+
+
+
+
+  }
+  public void imprimir(){
+
+      System.out.println("Preco " +getPreco());
+      System.out.println("Marca: "+getMarca());
+      System.out.println("Placa: "+getPlaca());
+      System.out.println("Idade Minima:"   + getIDADEMINIMAMOTORISTA());
+      //System.out.println("RPM:  " +motor.getRpm());
+    //  System.out.println("Potência:  " +motor.getPotencia());
+     // System.out.println("Tipo Combustivel: " +motor.getTipoCombustivel());
+      Motor motor = new Motor();
+      motor.imprimir();
+      this.motor = motor;
+  }
+  public void entradaDados(){
+
+      Scanner sc = new Scanner(System.in);
+      System.out.println("Preco: ");
+      setPreco(Double.parseDouble(sc.nextLine()));
+      System.out.println("Marca: ");
+      setMarca(sc.nextLine());
+      System.out.println("Placa: ");
+      setPlaca(sc.nextLine());
+      System.out.println("Idade Minima Motorista: ");
+      sc.nextLine();
+      Motor motor = new Motor();
+      motor.entradaDados();
+      this.motor = motor;
+
+  }
+
+      //cada classe implementa a sua
+      public abstract double desconto();
+
+
+
+}
